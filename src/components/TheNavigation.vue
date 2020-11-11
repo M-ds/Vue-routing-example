@@ -44,7 +44,7 @@ export default {
   text-decoration: none;
 }
 
-#nav a.router-link-exact-active {
+#nav a.bla-bla {
   color: purple;
 }
 
@@ -66,5 +66,4 @@ export default {
   color: purple;
   font-weight: bold;
 }
-
 </style>
