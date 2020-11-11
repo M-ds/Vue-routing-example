@@ -1,49 +1,27 @@
 import Vue from "vue";
-import VueRouter from "vue-router";
+import Router from "vue-router";
 import Home from "../views/Home.vue";
 
-Vue.use(VueRouter);
+Vue.use(Router);
 
-const routes = [
-  {
-    path: "/",
-    name: "Home", // Name of the route
-    component: Home // Which component we refer to
-  },
-  {
-    path: "/brazil",
-    name: "brazil",
-    // Dynamic loading, only loaded when the link is clicked
-    component: () => import(/* webpackChunkName: "brazil" */"../views/Brazil")
-  },
-  {
-    path: "/hawaii",
-    name: "hawaii",
-    // Dynamic loading, only loaded when the link is clicked
-    component: () => import(/* webpackChunkName: "hawaii" */"../views/Hawaii")
-  },
-  {
-    path: "/jamaica",
-    name: "jamaica",
-    // Dynamic loading, only loaded when the link is clicked
-    component: () => import(/* webpackChunkName: "jamaica" */"../views/Jamaica")
-  },
-  {
-    path: "/panama",
-    name: "panama",
-    // Dynamic loading, only loaded when the link is clicked
-    component: () => import(/* webpackChunkName: "panama" */"../views/Panama")
-  },
-  {
-    // We now specify that a param is provided in the url (this example an id)
-    path: "/details/:id",
-    name: "DestinationDetails",
-    component: () => import(/* webpackChunkName: "DestinationDetails" */"../views/DestinationDetails")
-  }
-];
-
-const router = new VueRouter({
-  routes
+export default new Router({
+  // This will make the url look normal
+  mode: "history",
+  // With this you can define your own active class (when clicked on router)
+  linkExactActiveClass: "bla-bla",
+  routes: [
+    {
+      path: "/",
+      name: "Home", // Name of the route
+      component: Home, // Which component we refer to
+      props: true
+    },
+    {
+      // We now specify that a param is provided in the url (this example an id)
+      path: "/details/:slug",
+      name: "DestinationDetails",
+      component: () => import(/* webpackChunkName: "DestinationDetails" */"../views/DestinationDetails"),
+      props: true
+    }
+  ]
 });
-
-export default router;

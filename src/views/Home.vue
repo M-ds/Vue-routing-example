@@ -10,12 +10,12 @@
         We make use of NamedRoutes, which makes it easier to maintain, as this is all done in the router.js
         We also provide a param to the router, as this makes it possible to load the correct data which is linked to the selected id.
         -->
-        <router-link :to="{ name: 'DestinationDetails', params: { id: destination.id }}">
+        <router-link :to="{ name: 'DestinationDetails', params: { slug: destination.slug }}">
           <h2>{{ destination.name }}</h2>
         </router-link>
         <figure>
           <!-- We make use of NamedRoutes, which makes it easier to maintain, as this is all done in the router.js -->
-          <router-link :to="{name: 'DestinationDetails', params: { id: destination.id }}">
+          <router-link :to="{name: 'DestinationDetails', params: { slug: destination.slug }}">
             <img :src="require(`@/assets/${destination.image}`)" :alt="destination.name">
           </router-link>
         </figure>
@@ -50,5 +50,13 @@ img {
 .destinations {
   display: flex;
   justify-content: space-between;
+}
+a {
+  color: lightseagreen;
+  text-decoration: none;
+}
+a:hover,
+a:visited {
+  text-decoration: underline;
 }
 </style>

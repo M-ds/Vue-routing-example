@@ -15,14 +15,19 @@ import store from "@/store.js";
 
 export default {
   data() {
-    return {
-      destinationId: this.$route.params.id
+    return {};
+  },
+  // With this, we now created a loosely couples component. isntead of directly obtaining the value from the router.
+  props: {
+    slug: {
+      type: String,
+      require: true
     }
   },
   computed: {
     destination() {
       return store.destinations.find(
-        destination => destination.id === this.destinationId
+        destination => destination.slug === this.slug
       );
     }
   }

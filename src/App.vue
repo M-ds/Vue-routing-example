@@ -4,8 +4,10 @@
     <!--
     Render the masked component which is clicked by the router...
     Renders the content of the current selected page.
+
+    :key="$route.path" -> This triggers a new reload of the page, when the path (url) changes.
      -->
-    <router-view/>
+    <router-view :key="$route.path"/>
   </div>
 </template>
 
