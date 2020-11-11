@@ -35,7 +35,8 @@ const routes = [
     component: () => import(/* webpackChunkName: "panama" */"../views/Panama")
   },
   {
-    path: "/details",
+    // We now specify that a param is provided in the url (this example an id)
+    path: "/details/:id",
     name: "DestinationDetails",
     component: () => import(/* webpackChunkName: "DestinationDetails" */"../views/DestinationDetails")
   }
