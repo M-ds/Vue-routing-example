@@ -1,10 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-import Brazil from "../views/Brazil.vue";
-import Panama from "../views/Panama.vue";
-import Hawaii from "../views/Hawaii.vue";
-import Jamaica from "../views/Jamaica.vue";
 
 Vue.use(VueRouter);
 
@@ -17,31 +13,34 @@ const routes = [
   {
     path: "/about",
     name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
+    // Called dynamic loading. Only executed when the component is loaded.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
+      // Underneath you can find the a magic comment, this will be displayed as name when debugging in Network tab (F12)
+      import(/* webpackChunkName: "about" */ "../views/About")
   },
   {
     path: "/brazil",
     name: "brazil",
-    component: Brazil
+    // Dynamic loading, only loaded when the link is clicked
+    component: () => import(/* webpackChunkName: "brazil" */"../views/Brazil")
   },
   {
     path: "/hawaii",
     name: "hawaii",
-    component: Hawaii
+    // Dynamic loading, only loaded when the link is clicked
+    component: () => import(/* webpackChunkName: "hawaii" */"../views/Hawaii")
   },
   {
     path: "/jamaica",
     name: "jamaica",
-    component: Jamaica
+    // Dynamic loading, only loaded when the link is clicked
+    component: () => import(/* webpackChunkName: "jamaica" */"../views/Jamaica")
   },
   {
     path: "/panama",
     name: "panama",
-    component: Panama
+    // Dynamic loading, only loaded when the link is clicked
+    component: () => import(/* webpackChunkName: "panama" */"../views/Panama")
   }
 ];
 
