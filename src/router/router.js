@@ -8,15 +8,7 @@ const routes = [
   {
     path: "/",
     name: "Home", // Name of the route
-    component: Home // Where we refer to
-  },
-  {
-    path: "/about",
-    name: "About",
-    // Called dynamic loading. Only executed when the component is loaded.
-    component: () =>
-      // Underneath you can find the a magic comment, this will be displayed as name when debugging in Network tab (F12)
-      import(/* webpackChunkName: "about" */ "../views/About")
+    component: Home // Which component we refer to
   },
   {
     path: "/brazil",
@@ -41,6 +33,11 @@ const routes = [
     name: "panama",
     // Dynamic loading, only loaded when the link is clicked
     component: () => import(/* webpackChunkName: "panama" */"../views/Panama")
+  },
+  {
+    path: "/details",
+    name: "DestinationDetails",
+    component: () => import(/* webpackChunkName: "DestinationDetails" */"../views/DestinationDetails")
   }
 ];
 

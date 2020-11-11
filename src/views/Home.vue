@@ -6,11 +6,16 @@
     <div class="destinations">
       <div v-for="destination in destinations"
            :key="destination.name">
-        <router-link :to="destination.slug">
+        <!--
+        We make use of NamedRoutes, which makes it easier to maintain, as this is all done in the router.js
+        We also provide a param to the router, as this makes it possible to load the correct data which is linked to the selected id.
+        -->
+        <router-link :to="{ name: 'DestinationDetails', params: { id: destination.id }}">
           <h2>{{ destination.name }}</h2>
         </router-link>
         <figure>
-          <router-link :to="destination.name">
+          <!-- We make use of NamedRoutes, which makes it easier to maintain, as this is all done in the router.js -->
+          <router-link :to="{name: 'DestinationDetails', params: { id: destination.id }}">
             <img :src="require(`@/assets/${destination.image}`)" :alt="destination.name">
           </router-link>
         </figure>
